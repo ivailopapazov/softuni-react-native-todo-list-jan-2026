@@ -5,8 +5,8 @@ import TodoItem from './components/TodoItem';
 export default function App() {
     const [text, setText] = useState('');
     const [todos, setTodos] = useState([
-        { isCompleted: false, text: "Go to the gym" },
-        { isCompleted: false, text: "Make your bed" },
+        { id: 1, isCompleted: false, text: "Go to the gym" },
+        { id: 2, isCompleted: false, text: "Make your bed" },
     ]);
 
     const textChangeHandler = (value) => {
@@ -19,8 +19,11 @@ export default function App() {
             return alert('Missing Todo Text!');
         };
 
+        const lastTodoId = todos[todos.length -1]?.id || 0;
+
         // TODO: Add ids
         const newTodo = {
+            id: lastTodoId + 1,
             text,
             isCompleted: false,
         };
