@@ -19,6 +19,10 @@ export default function App() {
             return setError('Todo text is required!');
         };
 
+        if (text.length < 3) {
+            return setError('Todo text is too short');
+        }
+
         const lastTodoId = todos[todos.length - 1]?.id || 0;
 
         const newTodo = {
